@@ -8,6 +8,7 @@ import { Heading } from '@/components/ui/heading'
 import { Separator } from '@/components/ui/separator'
 import { BillboardColumn, columns } from './columns'
 import { DataTable } from '@/components/ui/data-table'
+import { ApiList } from '@/components/ui/api-list'
 
 interface BillboardClientProps {
   data: Array<BillboardColumn>
@@ -36,6 +37,12 @@ export const BillboardClient = ({ data }: BillboardClientProps) => {
       <Separator />
 
       <DataTable columns={columns} data={data} searchKey="label" />
+
+      <Separator />
+
+      <Heading title="API" description="API calls for Billboards" />
+      <Separator />
+      <ApiList entityName="billboards" entityIdName="billboardId" />
     </>
   )
 }
