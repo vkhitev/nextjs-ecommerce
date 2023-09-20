@@ -1,6 +1,4 @@
 import prismadb from '@/lib/prismadb'
-import { auth } from '@clerk/nextjs'
-import { redirect } from 'next/navigation'
 import { format } from 'date-fns'
 
 import { BillboardClient } from './components/billboard-client'
@@ -13,12 +11,6 @@ interface BillboardsPageProps {
 }
 
 export default async function BillboardsPage({ params }: BillboardsPageProps) {
-  // const { userId } = auth()
-
-  // if (!userId) {
-  //   redirect('/sign-in')
-  // }
-
   const billboards = await prismadb.billboard.findMany({
     where: {
       storeId: params.storeId,
